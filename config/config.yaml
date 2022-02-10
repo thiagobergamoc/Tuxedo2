@@ -1,0 +1,2 @@
+params:
+  trimmomatic:"SLIDINGWINDOW:4:20 MINLEN:25 data/adaptador.fa:2:40:15"
