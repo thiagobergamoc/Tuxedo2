@@ -1,0 +1,36 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Conda environments: ignored
+Job stats:
+job            count    min threads    max threads
+-----------  -------  -------------  -------------
+all                1              1              1
+trimmomatic        2              1              1
+total              3              1              1
+
+Select jobs to execute...
+
+[Thu Feb 10 13:28:44 2022]
+rule trimmomatic:
+    input: data/samples/chr21_1.fq, data/samples/chr21_1.fq
+    output: data/samples/trimm/chr21_1.trim.fq
+    log: report/trimmomatic/chr21_1.log
+    jobid: 1
+    wildcards: sample=chr21_1
+    resources: tmpdir=/tmp
+
+trimmomatic PE -threads 1 -basein data/samples/chr21_1.fq data/samples/chr21_1.fq -baseout data/samples/trimm/chr21_1.trim.fq SLIDINGWINDOW:4:20 MINLEN:25 data/adapters/TruSeq3-PE-2.fa:2:40:15
+[Thu Feb 10 13:28:44 2022]
+Error in rule trimmomatic:
+    jobid: 1
+    output: data/samples/trimm/chr21_1.trim.fq
+    log: report/trimmomatic/chr21_1.log (check log file(s) for error message)
+    shell:
+        trimmomatic PE -threads 1 -basein data/samples/chr21_1.fq data/samples/chr21_1.fq -baseout data/samples/trimm/chr21_1.trim.fq SLIDINGWINDOW:4:20 MINLEN:25 data/adapters/TruSeq3-PE-2.fa:2:40:15
+        (one of the commands exited with non-zero exit code; note that snakemake uses bash strict mode!)
+
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: /home/thiagobc/Tuxedo2/.snakemake/log/2022-02-10T132842.563187.snakemake.log

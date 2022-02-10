@@ -1,7 +1,7 @@
 rule index:
     input:
-        "data/genome/genome.fa"
-        "data/genome/genome.gtf"
+        REF_FASTA,
+        REF_GTF
     output:
         "data/genome/genome.ss"
         "data/genome/genome.exon"

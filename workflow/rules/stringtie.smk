@@ -1,6 +1,6 @@
 rule assemble:
     input:
-        "data/genome/genome.gtf"
+        REF_GTF,
         "sorted_reads/{sample}.bam"
     output:
         "data/genome/sample/{sample}.gtf"
@@ -17,7 +17,7 @@ rule merged_file:
         "scripts/mergelist.py"
 rule merge:
     input:
-        "data/genome/genome.gtf"
+        REF_GTF,
         "data/genome/mergelist.txt"
     output:
         "data/genome/stringtie_merged.gtf"
@@ -27,7 +27,7 @@ rule merge:
         "stringtie --merge -p {threads} -G {input[0]} -o {output} {input[1]}"
 rule compare:
     input:
-        "data/genome/genome.gtf"
+        REF_GTF,
         "data/genome/stringtie_merged.gtf"
     output:
         "data/genome/merged"

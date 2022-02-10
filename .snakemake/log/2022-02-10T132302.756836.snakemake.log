@@ -1,0 +1,4 @@
+WorkflowError in line 9 of /home/thiagobc/Tuxedo2/Snakefile:
+Failed to open source file /home/thiagobc/Tuxedo2/trimmomatic.smk
+FileNotFoundError: [Errno 2] No such file or directory: '/home/thiagobc/Tuxedo2/trimmomatic.smk'
+  File "/home/thiagobc/Tuxedo2/Snakefile", line 9, in <module>

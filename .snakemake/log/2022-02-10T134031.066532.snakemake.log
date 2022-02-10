@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 1 of /home/thiagobc/Tuxedo2/workflow/rules/trimmomatic.smk:
+Missing input files for rule trimmomatic:
+data/samples/chr21_1.fqdata/samples/chr21_2.fq

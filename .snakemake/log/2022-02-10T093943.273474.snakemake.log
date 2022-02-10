@@ -1,0 +1,3 @@
+ValueError in line 4 of /home/thiagobc/Tuxedo2/Snakefile:
+not enough values to unpack (expected 2, got 1)
+  File "/home/thiagobc/Tuxedo2/Snakefile", line 4, in <module>

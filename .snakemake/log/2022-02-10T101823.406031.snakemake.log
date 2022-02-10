@@ -1,0 +1,3 @@
+NameError in line 15 of /home/thiagobc/Tuxedo2/Snakefile:
+name 'READS' is not defined
+  File "/home/thiagobc/Tuxedo2/Snakefile", line 15, in <module>
