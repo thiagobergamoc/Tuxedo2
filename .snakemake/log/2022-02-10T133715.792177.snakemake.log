@@ -1,5 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 11 of /home/thiagobc/Tuxedo2/Snakefile:
-Missing input files for rule all:
-data/samples/trimm/chr21_2.trim.fq
-data/samples/trimm/chr21_1.trim.fq

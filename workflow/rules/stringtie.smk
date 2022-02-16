@@ -10,14 +10,14 @@ rule assemble:
         "stringtie -p {threads} -G {input[0]} -o {output} –l {input[1]}"
 rule merged_file:
     input:
-        "data/genome/sample/"
+        "data/samples/"
     output:
         "data/genome/mergelist.txt"
     script:
         "scripts/mergelist.py"
 rule merge:
     input:
-        REF_GTF,
+        REF_GTF ,
         "data/genome/mergelist.txt"
     output:
         "data/genome/stringtie_merged.gtf"
@@ -27,7 +27,7 @@ rule merge:
         "stringtie --merge -p {threads} -G {input[0]} -o {output} {input[1]}"
 rule compare:
     input:
-        REF_GTF,
+        REF_GTF,    
         "data/genome/stringtie_merged.gtf"
     output:
         "data/genome/merged"

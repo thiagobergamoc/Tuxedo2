@@ -1,3 +1,0 @@
-WorkflowError in line 5 of /home/thiagobc/Tuxedo2/Snakefile:
-Workflow defines configfile confi/config.yaml but it is not present or accessible.
-  File "/home/thiagobc/Tuxedo2/Snakefile", line 5, in <module>

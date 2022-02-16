@@ -1,3 +1,0 @@
-SyntaxError in line 8 of /home/thiagobc/Tuxedo2/workflow/rules/trimmomatic.smk:
-Unexpected keyword o1uni in rule definition (trimmomatic.smk, line 8)
-  File "/home/thiagobc/Tuxedo2/Snakefile", line 9, in <module>

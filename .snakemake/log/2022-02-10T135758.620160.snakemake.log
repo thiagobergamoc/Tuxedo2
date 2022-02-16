@@ -1,4 +1,0 @@
-Building DAG of jobs...
-MissingInputException in line 28 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
-Missing input files for rule compare:
-data/genome/genome.gtfdata/genome/stringtie_merged.gtf
