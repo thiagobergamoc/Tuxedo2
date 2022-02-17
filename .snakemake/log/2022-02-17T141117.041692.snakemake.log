@@ -1,8 +1,0 @@
-Building DAG of jobs...
-WorkflowError:
-WildcardError (rule merged_file, line 24, /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk):
-    Wildcards in input files cannot be determined from output files:
-    'sample'
-MissingInputException: Missing input files for rule trimmomatic:
-data/samples/stringtie_merged_1.fq
-data/samples/stringtie_merged_2.fq

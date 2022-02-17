@@ -1,6 +1,0 @@
-ValueError in line 13 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
-expected '}' before end of string
-  File "/home/thiagobc/Tuxedo2/Snakefile", line 11, in <module>
-  File "/home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk", line 13, in <module>
-  File "/home/thiagobc/anaconda3/lib/python3.9/string.py", line 165, in vformat
-  File "/home/thiagobc/anaconda3/lib/python3.9/string.py", line 174, in _vformat
