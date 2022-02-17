@@ -1,49 +1,50 @@
 rule assemble:
     input:
-        REF_GTF,
-        "sorted_reads/{sample}.bam"
+        gtf = REF_GTF,
+        bam = "sorted_reads/{sample}.bam",
     output:
-        "data/genome/sample/{sample}.gtf"
+        out = "data/genome/sample/{sample}.gtf",
     conda:
         "envs/stringtie.yaml"
     shell:
-        "stringtie -p {threads} -G {input[0]} -o {output} –l {input[1]}"
+        "stringtie -p {threads} -G {input.gtf} -o {output.out} –l {input.bam}"
 rule merged_file:
     input:
-        "data/samples/"
+        sp = "data/samples/",
     output:
-        "data/genome/mergelist.txt"
+        mergelist = "data/genome/mergelist.txt",
     script:
-        "scripts/mergelist.py"
+         "ls {input.sp} > {output.mergelist}"
 rule merge:
     input:
-        REF_GTF ,
-        "data/genome/mergelist.txt"
+        lst = "data/genome/mergelist.txt",
+        gtf = REF_GTF
     output:
-        "data/genome/stringtie_merged.gtf"
+        merged = "data/genome/stringtie_merged.gtf"
     conda:
         "envs/stringtie.yaml"
     shell:
-        "stringtie --merge -p {threads} -G {input[0]} -o {output} {input[1]}"
+        "stringtie --merge -p {threads} -G {input.gtf} "
+        "-o {output.merged} {input.lst}"
 rule compare:
     input:
-        REF_GTF,    
-        "data/genome/stringtie_merged.gtf"
+        gtf = REF_GTF,    
+        merged = "data/genome/stringtie_merged.gtf",
     output:
-        "data/genome/merged"
+        dr = directory("data/genome/merged")
     conda:
         "envs/gffcompare.yaml"
     shell:
-        "gffcompare –r {input[0]} –G –o {output} {input[1]}"
+        "gffcompare –r {input.gtf} –G –o {output.dr} {input.merged}"
 rule abundance:
     input:
-        "data/genome/stringtie_merged.gtf"
-        "sorted_reads/{sample}.bam"
+        gtf = "data/genome/stringtie_merged.gtf",
+        bam = "sorted_reads/{sample}.bam",
     output:
-        "abudance/{sample}.gtf"
+       quant = "abudance/{sample}.gtf"
     conda:
         "envs/stringtie.yaml"
     log:
         "report/stringtie/{sample}.log"
     shell:
-        "stringtie –e –B -p {threads} -G {input[0]} -o {output} {input[1]}"
+        "stringtie –e –B -p {threads} -G {input.gtf} -o {output.quant} {input.bam}"

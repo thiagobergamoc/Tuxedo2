@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 15 of /home/thiagobc/Tuxedo2/workflow/rules/hisat2.smk:
+Missing input files for rule align:
+data/samples/trimm/chr21_1.trim.fq

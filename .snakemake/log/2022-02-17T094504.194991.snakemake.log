@@ -1,0 +1,3 @@
+SyntaxError in line 21 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
+invalid syntax
+  File "/home/thiagobc/Tuxedo2/Snakefile", line 11, in <module>

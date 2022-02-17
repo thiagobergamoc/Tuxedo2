@@ -1,12 +1,12 @@
 rule trimmomatic:
     input:
-        "data/samples/{sample}_1.fq" 
-        "data/samples/{sample}_2.fq" 
+        f = "data/samples/{sample}_1.fq",
+        r = "data/samples/{sample}_2.fq",
     output:
-        "data/samples/trimm/{sample}_1.trim.fq" 
-        "data/samples/trimm/{sample}_2.trim.fq" 
-		"data/samples/trimm/{sample}_un1.trim.fq" 
-        "data/samples/trimm/{sample}_un2.trim.fq" 
+        outF = "data/samples/trimm/{sample}_1.trim.fq",
+        outR = "data/samples/trimm/{sample}_2.trim.fq",
+        unF = "data/samples/trimm/{sample}_un1.trim.fq", 
+        unR = "data/samples/trimm/{sample}_un2.trim.fq",
     conda:
         "envs/trimmomatic.yaml"
     log:
@@ -15,6 +15,6 @@ rule trimmomatic:
         trimmomatic = config["trimmomatic"]
     shell:
         "trimmomatic PE -threads {threads} "
-        "-basein {input[0]} {input[1]} "
-        "-baseout {output[0]} {output[1]} {output[2]} {output[3]} "
+        "-basein {input.f} {input.r} "
+        "-baseout {output.outF} {output.outR} {output.unF} {output.unR} "
         "{params.trimmomatic}"

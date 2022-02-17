@@ -1,0 +1,6 @@
+The flag 'directory' used in rule align is only valid for outputs, not inputs.
+The flag 'directory' used in rule merged_file is only valid for outputs, not inputs.
+Building DAG of jobs...
+MissingInputException in line 18 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
+Missing input files for rule merge:
+/data/genome/chr21.gtf
