@@ -1,0 +1,4 @@
+WildcardError in line 13 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
+No values given for wildcard 'sample'.
+  File "/home/thiagobc/Tuxedo2/Snakefile", line 11, in <module>
+  File "/home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk", line 13, in <module>

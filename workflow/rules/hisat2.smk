@@ -19,7 +19,7 @@ rule align:
         r = "data/samples/trimm/{sample}_2.trim.fq",
         index = "data/genome_index",
     output:
-        sam = "mapped_reads/{sample}.sam"
+        sam = "data/mapped_reads/{sample}.sam"
     conda:
         "envs/hisat2.yaml"
     log:

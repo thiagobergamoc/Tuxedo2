@@ -8,11 +8,12 @@ configfile: "config/config.yaml"
 
 include: "workflow/rules/trimmomatic.smk",
 include: "workflow/rules/hisat2.smk",
+include: "workflow/rules/samtools.smk",
 include: "workflow/rules/stringtie.smk",
 
 rule all:
     input: 
-        "data/genome/merged"
+        "data/mapped_reads/stringtie_merged.gtf"
 
 
 

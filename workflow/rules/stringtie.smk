@@ -1,26 +1,26 @@
 rule assemble:
     input:
         gtf = REF_GTF,
-        bam = "sorted_reads/{sample}.bam",
+        bam = "data/mapped_reads/{sample}.bam",
     output:
-        out = "data/genome/sample/{sample}.gtf",
+        out = "data/mapped_reads/{sample}.gtf",
     conda:
         "envs/stringtie.yaml"
     shell:
         "stringtie -p {threads} -G {input.gtf} -o {output.out} –l {input.bam}"
 rule merged_file:
     input:
-        sp = "data/samples/",
+        sp = "data/mapped_reads/{sample}.gtf"
     output:
-        mergelist = "data/genome/mergelist.txt",
+        mergelist = "data/mapped_reads/mergelist.txt"
     script:
-         "ls {input.sp} > {output.mergelist}"
-rule merge:
+        "echo {input.sp} > {output.mergelist}"
+rule merge_stringtie:
     input:
-        lst = "data/genome/mergelist.txt",
-        gtf = REF_GTF
+        lst = "data/mapped_reads/mergelist.txt",
+        gtf = REF_GTF,
     output:
-        merged = "data/genome/stringtie_merged.gtf"
+        merged = "data/mapped_reads/stringtie_merged.gtf"
     conda:
         "envs/stringtie.yaml"
     shell:
@@ -29,19 +29,19 @@ rule merge:
 rule compare:
     input:
         gtf = REF_GTF,    
-        merged = "data/genome/stringtie_merged.gtf",
+        merged = "data/mapped_reads/stringtie_merged.gtf",
     output:
-        dr = directory("data/genome/merged")
+        dr = directory("data/mapped_reads/merged")
     conda:
         "envs/gffcompare.yaml"
     shell:
         "gffcompare –r {input.gtf} –G –o {output.dr} {input.merged}"
 rule abundance:
     input:
-        gtf = "data/genome/stringtie_merged.gtf",
-        bam = "sorted_reads/{sample}.bam",
+        gtf = "data/mapped_reads/stringtie_merged.gtf",
+        bam = "data/mapped_reads/{sample}.bam",
     output:
-       quant = "abudance/{sample}.gtf"
+       quant = "data/mapped_reads/abudance/{sample}.gtf"
     conda:
         "envs/stringtie.yaml"
     log:

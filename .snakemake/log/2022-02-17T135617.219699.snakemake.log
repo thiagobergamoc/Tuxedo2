@@ -1,0 +1,4 @@
+Building DAG of jobs...
+WildcardError in line 11 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
+Wildcards in input files cannot be determined from output files:
+'sample'

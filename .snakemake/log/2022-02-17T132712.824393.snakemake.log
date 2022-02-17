@@ -1,0 +1,4 @@
+Building DAG of jobs...
+MissingInputException in line 18 of /home/thiagobc/Tuxedo2/workflow/rules/stringtie.smk:
+Missing input files for rule merge_stringtie:
+/data/genome/chr21.gtf
